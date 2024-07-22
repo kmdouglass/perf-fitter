@@ -1,12 +1,10 @@
-# Python extensions in Rust
+# Perfit
 
-![build](https://github.com/kmdouglass/python-rust/actions/workflows/build.yml/badge.svg)
+![build](https://github.com/kmdouglass/perfit/actions/workflows/build.yml/badge.svg)
 
-Template repo for writing Python extensions in Rust.
+Algorithm performance tracking for localization microscopy
 
-Based on documentation at https://www.maturin.rs/index.html.
-
-## Getting started
+## Getting started (Linux)
 
 ```console
 $ python -m venv .venv
@@ -18,10 +16,6 @@ $ source .venv/bin/activate
 >>> _ = par_run(machines)
 
 ```
-
-## Project layout
-
-The [src/python](src/python) folder contains example Python objects written in Rust. These are exported into the Python extension module in [src/python_module.rs](src/python_module.rs).
 
 ## Development
 

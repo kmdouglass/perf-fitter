@@ -1,16 +1,17 @@
 [build-system]
-requires = ["maturin>=0.13,<0.14"]
+requires = ["maturin>=1.0,<2.0"]
 build-backend = "maturin"
 
 [tool.maturin]
 python-source = "python_src"
+module_name = "perfit.perfit_rs"
 
 [project]
-name = "python_lib"
+name = "perfit"
 version = "0.1.0"
-description = "Python extensions in Rust"
+description = "Algorithm performance tracking for localization microscopy"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 license = { file = "LICENSE" }
 keywords = [ "rust", "extension" ]
 authors = [ 
@@ -76,7 +77,7 @@ commands =
     black: black --check --diff .
     isort: isort --check --diff .
     mypy: mypy .
-    pylint: pylint python_src/python_lib
+    pylint: pylint python_src/perfit --ignore-patterns=.*.pyi
 """
 
 [tool.isort]
@@ -88,5 +89,5 @@ warn_return_any = true
 warn_unused_configs = true
 
 [tool.pylint]
-extension-pkg-allow-list = [ "python_lib" ]
+extension-pkg-allow-list = [ "perfit" ]
 max-line-length = 100

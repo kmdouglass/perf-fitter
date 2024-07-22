@@ -1,10 +1,5 @@
-from python_lib import StateMachine, Transition, par_run
+from perfit import StateMachine, Transition
 
 
-def test_par_run():
-    num_machines = 10
-    machines = [StateMachine() for _ in range(num_machines)]
-
-    transitions = par_run(machines)
-
-    assert num_machines == len(transitions)
+def test_skeleton():
+    assert True

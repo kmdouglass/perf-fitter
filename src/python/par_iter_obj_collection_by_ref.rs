@@ -40,21 +40,3 @@ impl StateMachine {
         Transition { data: time }
     }
 }
-
-#[pyfunction]
-pub fn par_run(machines: Vec<&PyCell<StateMachine>>) -> PyResult<Vec<Transition>> {
-    let mut machines = machines
-        .into_iter()
-        .map(|cell| cell.try_borrow_mut())
-        .collect::<Result<Vec<PyRefMut<StateMachine>>, _>>()?;
-
-    let mut machines = machines
-        .iter_mut()
-        .map(|refr| refr.deref_mut())
-        .collect::<Vec<&mut StateMachine>>();
-
-    Ok(machines
-        .par_iter_mut()
-        .map(|machine| machine.run())
-        .collect())
-}
